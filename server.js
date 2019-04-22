@@ -1,7 +1,17 @@
 const express = require('express')
 const app = express()
-const books = require('./db')
 const bodyParser = require('body-parser')
+const firebase = require('firebase')
+
+const config = {
+    apiKey: "AIzaSyCQsPDJpLyJ46_yoRptWci14q04623khwQ",
+    authDomain: "assignmentdsw.firebaseapp.com",
+    databaseURL: "https://assignmentdsw.firebaseio.com",
+    projectId: "assignmentdsw",
+    storageBucket: "assignmentdsw.appspot.com",
+    messagingSenderId: "629199098727"
+  };
+  firebase.initializeApp(config);
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
