@@ -21,7 +21,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  res.json(books)
+    var bookRef = firebase.database().ref('books');
+    bookRef.on('value', function(snapshot) {
+      res.send(snapshot.val());
+    });
 })
 
 app.get('/books/:id', (req, res) => {
