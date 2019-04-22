@@ -28,7 +28,10 @@ app.get('/books', (req, res) => {
 })
 
 app.get('/books/:id', (req, res) => {
-    res.json(books.find(book => book.id === req.params.id))
+    var id =  req.params.id
+    firebase.database().ref('/books/' + id).once('value').then(function(snapshot) {
+        res.send(snapshot.val());
+    });
   })
 
 app.post('/books', (req, res) => {
