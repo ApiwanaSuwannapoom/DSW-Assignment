@@ -63,9 +63,9 @@ app.put('/books/:id', (req, res) => {
   })
 
 app.delete('/books/:id', (req, res) => {
-    const deletedIndex = books.findIndex(book => book.id === req.params.id)
-    books.splice(deletedIndex, 1)
-    res.status(204).send()
+    var id =  req.params.id
+    firebase.database().ref('/books/' + id ).remove();
+    res.send("success");
  })
 
 app.listen(3000, () => {
