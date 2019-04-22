@@ -49,8 +49,17 @@ app.post('/books', (req, res) => {
   })
 
 app.put('/books/:id', (req, res) => {
-    const updateIndex = books.findIndex(book => book.id === req.params.id)
-    res.json(Object.assign(books[updateIndex], req.body))
+    var id =  req.body.id
+    var name =  req.body.name
+    var type =  req.body.type
+    var postData = {
+        name: name,
+        id: id,
+        type: type
+      };
+    
+    firebase.database().ref('/books/' + id ).update(postData);
+    res.send("success");
   })
 
 app.delete('/books/:id', (req, res) => {
