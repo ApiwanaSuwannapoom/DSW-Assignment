@@ -35,8 +35,17 @@ app.get('/books/:id', (req, res) => {
   })
 
 app.post('/books', (req, res) => {
-    books.push(req.body)
-    res.status(201).json(req.body)
+    var id =  req.body.id
+     var name =  req.body.name
+     var type =  req.body.type
+    
+    firebase.database().ref('/books/' + id ).set({
+          name: name,
+          id: id,
+          type: type
+          
+        });
+    res.send("success");
   })
 
 app.put('/books/:id', (req, res) => {
