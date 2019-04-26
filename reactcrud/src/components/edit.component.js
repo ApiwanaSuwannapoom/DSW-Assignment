@@ -52,9 +52,14 @@ export default class Edit extends Component {
         name: this.state.name,
         type: this.state.type
     };
-    axios.post('https://us-central1-assignmentdsw.cloudfunctions.net/api/books/post'+this.props.match.params.id, obj)
+    axios.post('https://us-central1-assignmentdsw.cloudfunctions.net/api/books/', obj)
         .then(res => console.log(res.data));
     
+        this.setState({
+          id: '',
+          name: '',
+          type: ''
+      });
     this.props.history.push('/index');
   }
  

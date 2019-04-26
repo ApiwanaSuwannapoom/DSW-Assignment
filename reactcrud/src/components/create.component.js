@@ -38,7 +38,7 @@ export default class Create extends Component {
       name: this.state.name,
       type: this.state.type
     };
-    axios.post('https://us-central1-assignmentdsw.cloudfunctions.net/api/books/post/', obj)
+    axios.post('https://us-central1-assignmentdsw.cloudfunctions.net/api/books/', obj)
         .then(res => console.log(res.data));
     
         this.setState({

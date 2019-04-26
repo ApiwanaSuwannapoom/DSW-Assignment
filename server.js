@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const firebase = require('firebase')
-
+const cors = require('cors')
 const config = {
     apiKey: "AIzaSyCQsPDJpLyJ46_yoRptWci14q04623khwQ",
     authDomain: "assignmentdsw.firebaseapp.com",
@@ -15,7 +15,7 @@ const config = {
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(cors())
 app.get('/', (req, res) => {
   res.send('Hello World')
 })

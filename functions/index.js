@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const firebase = require('firebase')
+const cors = require('cors')
 
 exports.api = functions.https.onRequest(app)
 
@@ -18,7 +19,7 @@ firebase.initializeApp(config);
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(cors())
 app.get('/', (req, res) => {
   res.send('Hello World')
 })
