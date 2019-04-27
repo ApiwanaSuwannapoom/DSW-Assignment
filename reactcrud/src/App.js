@@ -9,7 +9,11 @@ import Index from './components/index.component';
 class App extends Component {
   render() {
     return (
-      <Router>
+     <Router>
+        <div class="jumbotron text-center">
+        <h1>Welcome to My Book Store!</h1>
+         <p>นางสาวอภิวนา สุวรรณภูมิ 5910110529  Section 02</p>
+      </div>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to={'/'} className="navbar-brand">Books</Link>
@@ -32,7 +36,9 @@ class App extends Component {
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />
           </Switch>
+           
         </div>
+       
       </Router>
     );
   }
